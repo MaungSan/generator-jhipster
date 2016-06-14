@@ -229,13 +229,13 @@ module.exports = JhipsterGenerator.extend({
             if (this.skipClient) return;
 
             if (this.angularVersion === 'angular2') {
-                this.composeWith('jhipster:client-2', {
+                this.composeWith('fountain-angular2', {
                     options: {
-                        'skip-install': this.options['skip-install'],
-                        configOptions: this.configOptions
+                        framework: 'angular2',
+                        sample: 'jhipster'
                     }
                 }, {
-                    local: require.resolve('../client-2')
+                    local: require.resolve('generator-fountain-angular2/generators/app')
                 });
             } else {
                 this.composeWith('jhipster:client', {
@@ -248,9 +248,7 @@ module.exports = JhipsterGenerator.extend({
                 });
             }
 
-        },
-
-        askFori18n: prompts.askFori18n
+        }
     },
 
     default: {
